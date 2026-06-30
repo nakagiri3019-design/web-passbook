@@ -406,7 +406,7 @@
 
         <!-- 残高と明細 -->
         <div class="sec">
-          <div class="sec-h orange"><span class="ic">📔</span>残高と明細<span class="ts">2026/06/26 15:40 時点</span></div>
+          <div class="sec-h orange"><span class="ic">📔</span>残高と明細<span class="ts"><span class="update-time-js"></span></span></div>
           <div class="sec-body">
             <div class="bal-summary">
               <div class="cell"><span class="lbl">預金残高</span><span class="amt">10,948 円</span></div>
@@ -444,7 +444,7 @@
               <div class="fk-main">
                 <div style="display:flex;justify-content:space-between;align-items:center">
                   <div class="ttl">振込予定</div>
-                  <div style="font-size:12px;color:#555">2026/06/26 15:40 時点</div>
+                  <div style="font-size:12px;color:#555"><span class="update-time-js"></span></div>
                 </div>
                 <div class="fk-empty">お振込予定はありません。</div>
                 <div class="ttl" style="margin-top:14px">振込履歴</div>
@@ -560,6 +560,15 @@
   </footer>
 
   <button class="totop" onclick="scrollTo(0,0)">↑ ページトップへ</button>
+
+<script>
+(function(){
+  var n = new Date();
+  var p = function(x){ return String(x).padStart(2,'0'); };
+  var s = n.getFullYear()+'/'+p(n.getMonth()+1)+'/'+p(n.getDate())+' '+p(n.getHours())+':'+p(n.getMinutes())+' 時点';
+  document.querySelectorAll('.update-time-js').forEach(function(el){ el.textContent = s; });
+})();
+</script>
 
 </body>
 </html>
