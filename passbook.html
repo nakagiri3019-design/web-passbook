@@ -354,7 +354,7 @@
           </div>
           <div class="bal-band">
             <div class="bal-lbl">普通預金</div>
-            <div class="bal">75,812 <small>円</small></div>
+            <div class="bal">25,549 <small>円</small></div>
             <div class="ts"><span class="update-time-js"></span></div>
           </div>
           <div class="bal-band">
@@ -654,6 +654,15 @@
   nextBtn.addEventListener("click", () => { if(page < pages.length-1){ page++; render(); } });
 
   render();
+
+  // サイドバー「普通預金」の残高は台帳(pages)の最新残高から自動同期する。
+  // 明細を追記したときにここの手動更新を忘れても値がずれない。
+  (function(){
+    var el = document.querySelector('.acct-box .bal-band .bal');
+    if (el && pages[0] && pages[0][0]) {
+      el.innerHTML = pages[0][0].bal + ' <small>円</small>';
+    }
+  })();
 
   (function(){
     var n = new Date();
