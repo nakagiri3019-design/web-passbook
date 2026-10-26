@@ -212,6 +212,11 @@
   .dl-list a{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px dotted #ddd;color:#28638f;text-decoration:none;font-size:13px;}
   .dl-list a::before{content:"📄";filter:grayscale(.4) sepia(.2) hue-rotate(200deg);}
   .dl-list a:hover{text-decoration:underline;}
+  .dl-list a.dl-more{display:none;}
+  .dl-list.open a.dl-more{display:flex;}
+  .dl-toggle{padding:0 14px 14px;text-align:right;font-size:13px;}
+  .dl-toggle a{color:#28638f;text-decoration:none;}
+  .dl-toggle a:hover{text-decoration:underline;}
 
   /* ===== footer ===== */
   .footer-sky{position:relative;height:120px;background:var(--cream);overflow:hidden;}
@@ -373,14 +378,24 @@
 
         <div class="box dl">
           <div class="box-h"><span class="dot">●</span> 普通・定期預金の明細のダウンロード（直近15ヶ月分）</div>
-          <div class="dl-list">
+          <div class="dl-list" id="dlList">
+            <a href="#">2026 年 9月分</a>
+            <a href="#">2026 年 8月分</a>
+            <a href="#">2026 年 7月分</a>
+            <a href="#">2026 年 6月分</a>
             <a href="#">2026 年 5月分</a>
             <a href="#">2026 年 4月分</a>
-            <a href="#">2026 年 3月分</a>
-            <a href="#">2026 年 2月分</a>
-            <a href="#">2026 年 1月分</a>
-            <a href="#">2025 年 12月分</a>
+            <a href="#" class="dl-more">2026 年 3月分</a>
+            <a href="#" class="dl-more">2026 年 2月分</a>
+            <a href="#" class="dl-more">2026 年 1月分</a>
+            <a href="#" class="dl-more">2025 年 12月分</a>
+            <a href="#" class="dl-more">2025 年 11月分</a>
+            <a href="#" class="dl-more">2025 年 10月分</a>
+            <a href="#" class="dl-more">2025 年 9月分</a>
+            <a href="#" class="dl-more">2025 年 8月分</a>
+            <a href="#" class="dl-more">2025 年 7月分</a>
           </div>
+          <div class="dl-toggle"><a href="#" onclick="var l=document.getElementById('dlList');this.textContent=l.classList.toggle('open')?'▲折りたたむ':'▼全て表示';return false;">▼全て表示</a></div>
         </div>
       </aside>
 
